@@ -1,0 +1,181 @@
+/*
+    css/style.css
+    Estilos personalizados para o site COP30
+*/
+
+/* 1. Reset Básico (Melhora a consistência entre navegadores) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* 2. Cores e Tipografia (Atualizado) */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #e9f6ef; 
+    color: #343a40; 
+    
+    /* REAPLICAR: padding-top para evitar que o conteúdo fique por baixo do header fixo */
+    padding-top: 75px; 
+
+    /* Manter a decoração de folhas no fundo do body */
+    background-image: url('img/leaf_pattern_small.png'); 
+    background-repeat: repeat; 
+    background-size: 100px; 
+    background-attachment: fixed; 
+}
+
+/* 3. Navegação (Header: REAPLICAR 'fixed') */
+header {
+    /* Torna o header Fixo no topo do ecrã */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Garante que fica por cima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar {
+    border-bottom: 3px solid #28a745;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffffff !important; 
+}
+
+/* Link ativo com destaque */
+.navbar-nav .nav-item .nav-link.active {
+    border-bottom: 3px solid #007bff; /* Destaque azul (Água/Mares) */
+    color: #ffffff !important;
+}
+
+/* 4. Títulos e Conteúdo (Torna o conteúdo mais legível) */
+h1, h2, h3 {
+    color: #007bff; /* Títulos em azul para destaque */
+    margin-bottom: 1.5rem;
+}
+
+main {
+    padding-bottom: 50px; /* Espaço para o rodapé (que vamos adicionar a seguir) */
+}
+
+/* 5. Formulário (Página de Contacto) */
+#contactForm {
+    max-width: 800px; /* Limita a largura do formulário em ecrãs grandes */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success {
+    background-color: #28a745; /* Verde de destaque */
+    border-color: #28a745;
+    transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1c7430;
+}
+
+/* 6. Rodapé (Importante para um bom design e SEO) */
+footer {
+    background-color: #343a40; /* Fundo escuro */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    /* Pode usar position: fixed ou sticky para que esteja sempre visível */
+}
+
+/* 7. Estilos do Modal (Para a Galeria) */
+.gallery-item {
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s, box-shadow 0.3s; /* 'border' e 'box-shadow' à transição */
+    
+    /* 1. Tamanho Uniforme */
+    width: 100%; /* Garantir que a imagem preenche o col-md-4 */
+    height: 200px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Recorta a imagem para preencher a altura sem distorção */
+    
+    /* 2. Estilo Base da Borda */
+    border: 3px solid transparent; /* Borda transparente inicial */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    /* 3. Borda Interativa (Efeito ao passar o rato) */
+    border: 3px solid #007bff; /* Cor da borda ativa: Azul (pode ser #28a745 para verde) */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Sombra para destaque */
+}
+
+/* O Modal (fundo escuro) */
+.modal {
+    display: none; /* Escondido por predefinição */
+    position: fixed; 
+    z-index: 1050; /* Z-index alto para ficar por cima de tudo */
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); /* Fundo preto semi-transparente */
+}
+
+/* O conteúdo da imagem no modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* O botão de fechar */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* 8. Botão Voltar ao Início (Scroll-to-Top) */
+#scrollTopBtn {
+    /* Formato Redondo e Posição */
+    display: none; /* Escondido por predefinição, o JS mostrará */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99; 
+    
+    /* Estilo do Botão */
+    background-color: #28a745; /* Verde do tema */
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px; 
+    border-radius: 50%; /* Torna o botão redondo */
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+    background-color: #1e7e34;
+    transform: scale(1.1);
+}
